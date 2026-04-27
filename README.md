@@ -1,1 +1,1 @@
-# ui_project
+# mini_ui_project
