@@ -47,4 +47,4 @@ class ProductPage(BasePage):
         text_under_no_results = self.find(LocatorsProduct.MESS_NO_RESULT_UNDER).text
 
         assert text_no_results == "No results"
-        assert text_under_no_results == f'No results for "{product}" in category "Multimedia".'
+        assert text_under_no_results == f'No results for "{product}".'
