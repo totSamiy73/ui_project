@@ -5,10 +5,10 @@ def test_details_product(product):
     product.check_field_count_and_add()
 
 
-def test_add_cart_product(product):
+def test_add_cart_product(product, cart):
     product.open_page()
-    product.add_to_cart()
-    product.check_product_in_cart()
+    name_product = product.add_to_cart()
+    cart.check_product_in_cart(name_product)
 
 
 def test_field_search(product):

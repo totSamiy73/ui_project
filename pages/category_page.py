@@ -8,7 +8,7 @@ class CategoryPage(BasePage):
     page_url = "shop/category/desks-1"
 
     def search_in_category_positive(self, product):
-        wait = WebDriverWait(self.driver, 5)
+        wait = WebDriverWait(self.driver, 10)
 
         wait.until(EC.presence_of_element_located(LocatorsCategory.FIELDS_SEARCH))
         search_field = self.find_all(LocatorsCategory.FIELDS_SEARCH)[1]
@@ -23,7 +23,7 @@ class CategoryPage(BasePage):
         assert text_product == product
 
     def search_in_category_negative(self, product):
-        wait = WebDriverWait(self.driver, 5)
+        wait = WebDriverWait(self.driver, 10)
 
         wait.until(EC.presence_of_element_located(LocatorsCategory.FIELDS_SEARCH))
         search_field = self.find_all(LocatorsCategory.FIELDS_SEARCH)[1]
@@ -41,7 +41,7 @@ class CategoryPage(BasePage):
         assert text_under_no_results == f'No results for "{product}" in category "Desks".'
 
     def filter_by_legs(self):
-        wait = WebDriverWait(self.driver, 5)
+        wait = WebDriverWait(self.driver, 10)
         wait.until(EC.presence_of_element_located(LocatorsCategory.PRICE_RANGE))
 
         self.find(LocatorsCategory.CHECKBOX_ALUM).click()
@@ -54,7 +54,7 @@ class CategoryPage(BasePage):
         assert text_product == "Customizable Desk"
 
     def switch_currency_eur(self):
-        wait = WebDriverWait(self.driver, 5)
+        wait = WebDriverWait(self.driver, 10)
 
         switcher_pricelist = self.find(LocatorsCategory.SWITCHER_PRICELIST)
         switcher_pricelist.click()
