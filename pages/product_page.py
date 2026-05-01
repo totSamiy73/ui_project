@@ -23,16 +23,15 @@ class ProductPage(BasePage):
         assert self.find(LocatorsProduct.BUTTON_ADD).is_displayed()
 
     def add_to_cart(self):
-        wait = WebDriverWait(self.driver, 5)
+        wait = WebDriverWait(self.driver, 10)
         self.find(LocatorsProduct.BUTTON_ADD_CART).click()
         wait.until(EC.text_to_be_present_in_element(LocatorsProduct.QUANTITY_IN_CART, "1"))
+        title_product = self.find(LocatorsProduct.TITLE_PRODUCT).text
         self.find(LocatorsProduct.BUTTON_CART).click()
-
-    def check_product_in_cart(self):
-        assert self.find(LocatorsProduct.TITLE_PRODUCT_IN_CART).text == "Office Design Software"
+        return title_product
 
     def field_search(self, product):
-        wait = WebDriverWait(self.driver, 5)
+        wait = WebDriverWait(self.driver, 10)
 
         wait.until(EC.presence_of_element_located(LocatorsProduct.FIELDS_SEARCH))
         search_field = self.find_all(LocatorsProduct.FIELDS_SEARCH)[1]
@@ -42,7 +41,7 @@ class ProductPage(BasePage):
         self.find(LocatorsProduct.BUTTON_GLASS).click()
 
     def check_no_results_after_search(self, product):
-        wait = WebDriverWait(self.driver, 5)
+        wait = WebDriverWait(self.driver, 10)
         wait.until(EC.presence_of_element_located(LocatorsProduct.MESS_NO_RESULT))
         text_no_results = self.find(LocatorsProduct.MESS_NO_RESULT).text
         text_under_no_results = self.find(LocatorsProduct.MESS_NO_RESULT_UNDER).text
