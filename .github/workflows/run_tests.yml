@@ -1,6 +1,17 @@
 name: python autotests ui
 
-on: [push]
+on:
+  workflow_dispatch:
+    inputs:
+      deployment_target:
+        description: choose tests set
+        required: true
+        type: choice
+        default: all
+        options:
+          - smoke
+          - regretion
+          - all
 
 jobs:
   run-tests:
