@@ -4,12 +4,18 @@ from selenium import webdriver
 from pages.cart_page import CartPage
 from pages.category_page import CategoryPage
 from pages.product_page import ProductPage
+from selenium.webdriver.chrome.options import Options
 
 
 @pytest.fixture()
 def driver():
-    driver_chrome = webdriver.Chrome()
-    driver_chrome.maximize_window()
+    options = Options()
+    options.add_argument("--headless")
+    options.add_argument("--window-size=1920,1080")
+    options.add_argument("--no-sandbox")
+    options.add_argument("--disable-dev-shm-usage")
+    driver_chrome = webdriver.Chrome(options=options)
+    # driver_chrome.maximize_window()
     yield driver_chrome
     driver_chrome.quit()
 
