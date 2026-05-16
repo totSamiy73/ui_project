@@ -1,3 +1,6 @@
+import pytest
+
+@pytest.mark.smoke
 def test_search_product_in_category(category):
     category.open_page()
     category.search_in_category_positive("Four Person Desk")

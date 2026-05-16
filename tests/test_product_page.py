@@ -1,3 +1,6 @@
+import pytest
+
+@pytest.mark.smoke
 def test_details_product(product):
     product.open_page()
     product.check_title_product("Office Design Software")

@@ -1,3 +1,6 @@
+import pytest
+
+@pytest.mark.smoke
 def test_empty_cart(cart):
     cart.open_page()
     cart.check_header_title("Order overview")
