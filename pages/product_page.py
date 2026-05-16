@@ -45,6 +45,5 @@ class ProductPage(BasePage):
         wait.until(EC.presence_of_element_located(LocatorsProduct.MESS_NO_RESULT))
         text_no_results = self.find(LocatorsProduct.MESS_NO_RESULT).text
         text_under_no_results = self.find(LocatorsProduct.MESS_NO_RESULT_UNDER).text
-
         assert text_no_results == "No results"
         assert f'No results for "{product}"' in text_under_no_results
