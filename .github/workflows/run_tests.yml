@@ -55,6 +55,8 @@ jobs:
 
           if [ -d "gh-pages/history" ]; then
             cp -r gh-pages/history/* allure-results/history
+          else
+            echo "No previous history found"
           fi
 
     
